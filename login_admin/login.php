@@ -14,7 +14,7 @@
     <!--web-fonts-->
 </head>
 
-<body >
+<body background="./images/motorbike.jpg">
 <!--header-->
 	<div class="header-w3l">
 		<h1> Login de Dueño de Boutique</h1>
