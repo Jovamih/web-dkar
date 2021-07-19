@@ -1,16 +1,8 @@
-.body {
-    background-image: url("img/motorbike.jpg");
+body {
+    background-image: url("img/cielo.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     /*filter: blur(8px);
     -webkit-filter: blur(8px);*/
 }
-
-
-/*.body,
-.navbar,
-#footer {
-    background: rgb(2, 0, 36);
-    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(229, 139, 235, 1) 0%, rgba(0, 212, 255, 1) 69%);
-}*/

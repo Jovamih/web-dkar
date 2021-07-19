@@ -16,10 +16,10 @@
 	<link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body class="body" background="./img/cielo.jpg">
+<body class="body" background="img/cielo.jpg">
 
 
-    <div class="container " styles="">
+    <div class="container ">
         <form action="login.php" method="post" class="text-center justify-content-center" style="margin-top:5%;">
             <h2>Login de Usuario</h2>
             <div class="container" style="margin-left: 30%;">
