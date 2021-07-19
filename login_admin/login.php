@@ -16,27 +16,30 @@
 	<link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body class="body" background="img/cielo.jpg">
+<body class="body">
 
 
     <div class="container ">
         <form action="login.php" method="post" class="text-center justify-content-center" style="margin-top:5%;">
-            <h2>Login de Usuario</h2>
+            <h1 style="color:white;text-align:center;">Login de Usuario</h1>
             <div class="container" style="margin-left: 30%;">
                 <div class="form-group col-4 ">
-                    <label for="">Usuario</label>
+                    <label for="user" style="color:white;">Usuario</label>
                     <input type="email" class="form-control" name="user" aria-describedby="emailHelpId" placeholder="">
-                    <small id="emailHelpId" class="form-text text-muted">Coloque su correo o su nombre de usuario</small>
+                    <small id="emailHelpId" class="form-text text-muted" style="color:white;">Coloque su correo o su nombre de usuario</small>
                 </div>
                 <div class="form-group col-4">
-                    <label for="">Contraseña</label>
+                    <label for="password" style="color:white;">Contraseña</label>
                     <input type="password" class="form-control" name="password" placeholder="" minlength="8">
                 </div>
-                
+                <div class="form-group col-4">
+            
+                    <label for="password" style="color:white"><a href="mailto:boutique.dkar@hotmail.com">No recuerdas tu contraseña? Click Aqui</a></label>
+                </div>
 
                 <div class="form-group col-4">
-                    <input type="submit" value="Ingresar" class="btn btn-primary">
-                    <input type="reset" value="Cancelar" class="btn btn-danger">
+                    <input type="submit" value="Ingresar" class="btn btn-danger">
+                   
                 </div>
             </div>
 
@@ -44,15 +47,7 @@
     </div>
 
 
-    <!--Pie de pagina-->
-    <footer class="text-center text-white fixed-bottom" style=" height:7%;" id="footer">
-
-        <div class="text-center p-3" style="background-color: rgba(102, 90, 90, 0.2);">
-            © 2021 Copyright. Boutique D'KAR
-            <a class="text-white" href="#">www.boutiquedkar.com</a>
-        </div>
-        <!-- Copyright -->
-    </footer>
+   
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -1,8 +1,7 @@
-body {
-    background-image: url("img/cielo.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
+.body {
+    background-image: url(../img/montes_nocturno_desenfocado.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
-    /*filter: blur(8px);
-    -webkit-filter: blur(8px);*/
 }
