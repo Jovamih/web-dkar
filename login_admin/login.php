@@ -12,41 +12,72 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+    <script src="https://kit.fontawesome.com/31127b7562.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body class="body">
+<nav class="navbar navbar-dark bg-dark">
+  <!-- Navbar content -->
+  
+</nav>
+<div class="logo">
+            <h2 >BOUTIQUE D'KAR</h2>
+			<p>Lo mejor de moda para <span>ellos!</span></p>
+</div>
 
-
-    <div class="container ">
-        <form action="login.php" method="post" class="text-center justify-content-center" style="margin-top:5%;">
-            <h1 style="color:white;text-align:center;">Login de Usuario</h1>
-            <div class="container" style="margin-left: 30%;">
-                <div class="form-group col-4 ">
+    <div class="container logo">
+        
+        <div class="card-body p-0">
+              <div class="row">
+                <div class="col-lg-6 d-none border-right d-flex justify-content-center align-items-center">
+                  <img class="logo-login-minsa rounded" src="./img/streetwear.png" style="width:80%;border: radius 10px;">
+                </div>
+                <div class="col-lg-6">
+                <div class="container-fluid">
+                  <form action="login.php" method="post" class="text-center justify-content-center" style="margin-top:5%;">
+            <h1 style="color:black;text-align:center;">Login de Usuario</h1>
+            <div class="container" style="margin-left: 25%;">
+                <div class="form-group col-6 ">
                     <label for="user" style="color:white;">Usuario</label>
                     <input type="email" class="form-control" name="user" aria-describedby="emailHelpId" placeholder="">
                     <small id="emailHelpId" class="form-text text-muted" style="color:white;">Coloque su correo o su nombre de usuario</small>
                 </div>
-                <div class="form-group col-4">
+                <div class="form-group col-6">
                     <label for="password" style="color:white;">Contraseña</label>
                     <input type="password" class="form-control" name="password" placeholder="" minlength="8">
                 </div>
-                <div class="form-group col-4">
-            
-                    <label for="password" style="color:white"><a href="mailto:boutique.dkar@hotmail.com">No recuerdas tu contraseña? Click Aqui</a></label>
-                </div>
+               
 
-                <div class="form-group col-4">
-                    <input type="submit" value="Ingresar" class="btn btn-danger">
+                <div class="form-group col-6">
+                    <input type="submit" value="Ingresar" class="btn btn-primary">
                    
                 </div>
+                <div class="form-group col-6">
+            
+            <label for="password" style="color:white"><a href="mailto:boutique.dkar@hotmail.com">No recuerdas tu contraseña? Click Aqui</a></label>
+        </div>
             </div>
 
         </form>
+        </div>
+                  </div>
+                </div>
+              </div>
+            </div>
     </div>
 
-
+    <br>
+    <footer>
+		<div class="pie fixed-bottom">
+			<a href="#"><i class="fab fa-facebook-square fa-2x"></i></a>
+			<a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+			<a href="#"><i class="fas fa-map-marked-alt fa-2x"></i></a>
+			<p>Copyright © 2021, Todos los derechos reservados.</p>
+		</div>
+		
+	</footer>
+    
    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
