@@ -53,7 +53,7 @@
   <h2 style="text-align: center;">Consultar catalogo de productos</h2>
     <!-- FORMULARIO DE CONSULTA-->
     <div class="container justify-content-center">
-            <form action="./index.php" method="POST">
+            <form action="./index.php" method="POST" enctype='multipart/form-data'>
                 
                 
                     
@@ -70,15 +70,15 @@
                 </div>   
                 <div class="form-group justify-content-center align-items-center" id="input-nombre" style="display:block;">
                   <label for="nombre"></label>
-                  <input type="text" class="form-control row" name="nombre" id="nombre">
+                  <input type="text" class="form-control row" name="nombre" id="nombre" value="">
                   <small id="helpId" class="text-muted">Ingrese el nombre de la prenda a buscar</small>
                 </div>
               
                 <div class="form-group justify-content-center align-items-center" id="categoria-div" style="display:none;">
                     <label for="categoria-selector">Seleccionar categoria: </label>
                     <select class="custom-select row" name="categoria" id="categoria">
-                      <option selected>Select one</option>
-                      <option value="chompa">Chompa</option>
+                     
+                      <option value="chompa" selected>Chompa</option>
                       <option value="conjunto">Conjunto</option>
                       <option value="pantalones">Pantalones</option>
                       <option value="otros">Otros</option>
