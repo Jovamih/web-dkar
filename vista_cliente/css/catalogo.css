@@ -5,6 +5,9 @@
 	margin: 0px;
 }
 /************************************************************************/
+.formato-tabla{
+	display: flexbox;
+}
 .formato-colum1{
 	padding-left: 7%;
 	margin-top: 1%;
@@ -53,7 +56,7 @@ span{
 }
 .formato-columnas img{
 	width: 100%; 
-	height: 500px; 
+	height: 100%; 
 	object-fit: cover;
 }
 .detalles{
@@ -96,3 +99,34 @@ span{
 	}
 }
 
+/********responsive para todos los dispositivos******/
+@media (min-width:576px) {
+	.logo2{
+		padding-top: 30%;
+		text-align: center;
+	}
+}
+@media	(min-width: 768px){
+	.logo2{
+		padding-top: 30%;
+		text-align: center;
+	}
+}
+@media	(min-width: 992px){
+	.logo2{
+		padding-top: 30%;
+		text-align: center;
+	}
+}
+@media	(min-width: 1255px){
+	.logo2{
+		padding-top: 30%;
+		text-align: center;
+	}
+}
+@media	(min-width: 1400px){
+	.logo2{
+		padding-top: 30%;
+		text-align: center;
+	}
+}
