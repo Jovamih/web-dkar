@@ -46,10 +46,10 @@
         <h3>BOUTIQUE D'KAR</h3>
         <p>Lo mejor de moda para <span>ellos!</span></p>
       </div>
-       <hr>
       <div class="row" style="padding: 0px;margin: 0px;">
         <!--columna categoria-->
         <div class="col-sm formato-colum1">
+          <hr>
           <ul class="nav flex-column formato-categoria-filtro">
             <h3>CATEGORÍA <span class="badge badge-info" style="font-size: 30px; margin-left: 5px; letter-spacing: 1px;">BUZOS</span></h3>
             
@@ -172,7 +172,7 @@
                 }
               </style>
               <div class="alert alert-danger">
-                <strong>Error!</strong> <br>No se encontraron productos disponibles. <a href="../Catalogo.html" class="alert-link formato-error">Volver a catalogo</a>.
+                <strong>Error!</strong> <br>No se encontraron productos disponibles. <a href="../Catalogo.html" class="alert-link formato-error">Volver a catálogo</a>.
               </div>
           <?php }?>
       </div>  

@@ -172,7 +172,7 @@
                 }
               </style>
               <div class="alert alert-danger">
-                <strong>Error!</strong> <br>No se encontraron productos disponibles. <a href="../Catalogo.html" class="alert-link formato-error">Volver a catalogo</a>.
+                <strong>Error!</strong> <br>No se encontraron productos disponibles. <a href="../Catalogo.html" class="alert-link formato-error">Volver a catálogo</a>.
               </div>
           <?php }?>
       </div>  
