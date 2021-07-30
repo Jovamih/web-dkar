@@ -10,27 +10,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://kit.fontawesome.com/31127b7562.js" crossorigin="anonymous"></script>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
   </head>
   <body class="justify-content-center">
   <header>
+		
 		<div class="logo">
 			<h3>BOUTIQUE D'KAR</h3>
 			<p>Lo mejor de moda para <span>ellos!</span></p>
 		</div>
-		<div class="contenedor">
-			<input type="checkbox" id="menuprincipal">
-			<label class="fas fa-bars" for="menuprincipal"></label>
-			<nav class="menu">
-				<a href="Inicio.html">INICIO</a></li>
-				<a href="RegistrarIngreso.html">INGRESO DE PRENDAS</a></li>
-				<a href="SalidaProducto.html">SALIDA DE PRENDAS</a></li>		
-				<a href="#">VER PRENDAS</a></li>
-				<a href="#">CODIGOS DE PRENDAS</a></li>
-				<a href="#">CERRAR SESIÓN</a></li>
-			</nav>
-		</div>		
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Menu principal</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Ingreso de prendas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Salida de prendas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="#">Ver prendas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="#">Codigo de prendas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="#">Cerrar sesion</a>
+      </li>
+    </ul>
+  </div>
+</nav>	
 	</header>
   <h2 style="text-align: center;">Consultar catalogo de productos</h2>
     <!-- FORMULARIO DE CONSULTA-->
@@ -58,7 +76,7 @@
               
                 <div class="form-group justify-content-center align-items-center" id="categoria-div" style="display:none;">
                     <label for="categoria-selector">Seleccionar categoria: </label>
-                    <select class="custom-select row" name="categoria-selector" id="categoria-selector">
+                    <select class="custom-select row" name="categoria" id="categoria">
                       <option selected>Select one</option>
                       <option value="chompa">Chompa</option>
                       <option value="conjunto">Conjunto</option>
@@ -77,7 +95,7 @@
 
     <div class="container-fluid">
     <table class="table">
-   <thead class="table-dark">
+   <thead class="table-primary">
     <tr>
       <th scope="col">Codigo Producto</th>
       <th scope="col">Nombre</th>
@@ -85,6 +103,7 @@
       <th scope="col">Talla</th>
       <th scope="col">Color</th>
       <th scope="col">Precio Unitario</th>
+      <th scope="col">Unidades</th>
       <th scope="col">Imagen</th>
       <th scope="col">View</th>
 
@@ -94,13 +113,22 @@
         <?php
             if(isset($_POST["nombre"])){
           
-            $v2 = $_POST['nombre'];
+            $nombre_producto = $_POST['nombre'];
+            $categoria_producto=$_POST['categoria'];
             //conuslta SQL
-            $sql = "SELECT * FROM ";
+            $sql = "SELECT P.idProducto as ID, P.nombre as nombre, C.nombre as color,T.nombre as talla,C.nombre,P.precioUnitario as precioUnit,P.unidadesDisp as unidades,P.imagen as imagen FROM Producto as P
+                             LEFT JOIN Categoria as C
+                             ON P.idCategoria=C.idCategoria
+                             LEFT JOIN Talla as T
+                             ON P.idTalla=T.idTalla
+                             LEFT JOIN Color as C
+                             ON P.idColor=C.idColor
+                   WHERE P.nombre LIKE '%$nombre_producto%' OR C.nombre LIKE '%$categoria_producto%'";
+           
             $result = mysqli_query($conexion, $sql);
             //cuantos reultados hay en la busqueda
             $num_resultados = mysqli_num_rows($result);
-            echo "<p>Número de perros encontrados: ".$num_resultados."</p>";
+            echo "<p>Número de prendas encontradas: ".$num_resultados."</p>";
             //mostrando informacion de los perros y detalle
             for ($i=0; $i <$num_resultados; $i++) {
             $row = mysqli_fetch_array($result); 
@@ -108,23 +136,19 @@
 
             echo "<tr>";
                                 //para obtener los credenciales del formulario
-                    echo  "<td>".$row['DNI']."</td>";
-                    echo  "<td>".$row['Nombre']."</td>";    
-                    echo "<td>".$row['Raza']."</td>";
+                    echo  "<td>".$row['ID']."</td>";
+                    echo  "<td>".$row['nombre']."</td>";    
                     
-                    if($row['Genero']==1) $sexo="Macho";
-                    else $sexo="Hembra";
-                    echo "<td>".$sexo."</td>";
-                    if($row["FechaNacimiento"]==NULL) $nac="No especificado";
-                    else $nac=$row["FechaNacimiento"];
-                    echo "<td>".$nac."</td>";
-                   
+                    echo "<td>".$row['talla']."</td>";
+                    echo "<td>".$row['color']."</td>";
+                    echo "<td>".$row['precioUnit']."</td>";
+                    echo "<td>".$row['unidades']."</td>";
                     echo "<td>";
-                    echo '<img class="rounded" src="data:image/jpeg;base64,'.base64_encode( $row['Foto'] ).'" style="height:100px;width:100px";/>';
+                    echo '<img class="rounded" src="data:image/jpeg;base64,'.base64_encode( $row['imagen'] ).'" style="height:100px;width:100px";/>';
                     echo "</td>";
                     echo "<td>";
-                    echo "<a class='btn btn-primary' role='button' href='../model/consultar_historia.php?dni=".$row['DNI']."'>Consultar</a>";
-                    echo "<a class='btn btn-warning m-1' role='button' href='../model/registrar_historia.php?dni=".$row['DNI']."'>Registrar</a>";
+                    echo "<a class='btn btn-primary' role='button' href='../model/consultar_historia.php?dni=".$row['ID']."'>Consultar</a>";
+                    echo "<a class='btn btn-warning m-1' role='button' href='../model/registrar_historia.php?dni=".$row['ID']."'>Registrar</a>";
                     echo "</td>";
              echo " </tr>";
             }
