@@ -1,9 +1,16 @@
 <?php
     include_once("../database/conexion.php");
-    if(isset($_POST['user'] && isset($_POST['password']))){
+    if(isset($_POST['user']) && isset($_POST['password'])){
         $user = $_POST['user'];
         $password = $_POST['password'];
-        $query = "SELECT * FROM usuario WHERE user = '$user' AND password = '$password'";
+        $query = "SELECT * FROM Usuario WHERE user = '$user' AND password = '$password'";
+        //die($query);
+        $result = mysqli_query($conexion, $query);
+        if(mysqli_num_rows($result) > 0){
+            $row = mysqli_fetch_array($result);
+            $_SESSION['user'] = $row['user'];
+            header("Location:../consultar_admin/");
+        }
     }
 ?>
 <!doctype html>
@@ -45,7 +52,7 @@
             <div class="container" style="margin-left: 25%;">
                 <div class="form-group col-6 ">
                     <label for="user" style="color:white;">Usuario</label>
-                    <input type="email" class="form-control" name="user" aria-describedby="emailHelpId" placeholder="" required>
+                    <input type="text" class="form-control" name="user" aria-describedby="emailHelpId" placeholder="" required>
                     <small id="emailHelpId" class="form-text text-muted" style="color:white;">Coloque su correo o su nombre de usuario</small>
                 </div>
                 <div class="form-group col-6">
