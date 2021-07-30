@@ -5,22 +5,15 @@
 	margin: 0px;
 }
 /************************************************************************/
-.formato-tabla{
-	display: flexbox;
-}
-.formato-colum1{
-	padding-left: 7%;
-	margin-top: 1%;
+.formato-colum1{		/*categoria*/
+	/*padding-left: 15%;*/
 	color: #000;
-}
-.formato-categoria{
-	margin-left: 5%;
-	z-index:99; 
-	position: fixed;
+	/*border: 2px solid;*/
 }
 /**/
 .logo2{
-	padding-top: 15%;
+	padding-top: 20%;
+	padding-bottom: 8%;;
 	width: 100%;
 	font-family: 'Oswald', sans-serif;
 }
@@ -37,6 +30,11 @@ span{
 	padding-left: 5PX;
 	padding-right: 5PX;
 }
+.formato-categoria{
+	margin-left: 5%;
+	z-index:99; 
+	position: fixed;
+}
 .formato-colum1 h3{
 	margin-top: 10px;
 	color: #000;
@@ -50,13 +48,16 @@ span{
 	background: #7EBAE2;
 	color: #fff;
 }
-.formato-columnas{
-	padding-top: 10%;
+/***************************************************************/
+.formato-columnas{	/*articulos*/
+	padding-top: 8%;
 	font-family: 'Oswald', sans-serif;
+	text-align: right;
+	/*border: 2px solid;*/
 }
 .formato-columnas img{
 	width: 100%; 
-	height: 100%; 
+	height: auto; 
 	object-fit: cover;
 }
 .detalles{
@@ -66,9 +67,9 @@ span{
 .detalles button{
 	font-size: 20px;
 }
-/*********************/
+/******************************************************************/
 /*********responsive*******/
-@media	(max-width: 980px){
+@media	(max-width: 576px){
 	.formato-colum1{
 	margin-left: 0%;
 	}
@@ -77,8 +78,13 @@ span{
 	margin-left: 0%;
 	position: relative;
 	}
+	.formato-columnas h2 span{
+		margin-right: 15px;
+		font-size: 30px;
+	}
 	.logo2{
-		padding-top: 16%;
+		padding-top: 14%;
+		padding-bottom: 1%;;
 		width: 100%;
 		margin: 0px;
 		text-align: center;
@@ -93,40 +99,21 @@ span{
 	}
 	p,span{
 		text-align: center;
-		font-size: 18px;
+		font-size: 20px;
 		padding-top: 0px;
 		margin-top:0px;
 	}
 }
-
-/********responsive para todos los dispositivos******/
-@media (min-width:576px) {
-	.logo2{
-		padding-top: 30%;
-		text-align: center;
+@media (min-width:1024px){
+	.formato-columnas{	
+		padding-top: 15%;
+	}
+	.formato-categoria{
+	margin-left: 2%;
 	}
 }
-@media	(min-width: 768px){
-	.logo2{
-		padding-top: 30%;
-		text-align: center;
-	}
-}
-@media	(min-width: 992px){
-	.logo2{
-		padding-top: 30%;
-		text-align: center;
-	}
-}
-@media	(min-width: 1255px){
-	.logo2{
-		padding-top: 30%;
-		text-align: center;
-	}
-}
-@media	(min-width: 1400px){
-	.logo2{
-		padding-top: 30%;
-		text-align: center;
+@media (min-width:1400px){
+	.formato-columnas{	
+		padding-top: 8%;
 	}
 }
