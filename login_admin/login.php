@@ -1,5 +1,10 @@
 <?php
-
+    include_once("../database/conexion.php");
+    if(isset($_POST['user'] && isset($_POST['password']))){
+        $user = $_POST['user'];
+        $password = $_POST['password'];
+        $query = "SELECT * FROM usuario WHERE user = '$user' AND password = '$password'";
+    }
 ?>
 <!doctype html>
 <html lang="es">
@@ -40,12 +45,12 @@
             <div class="container" style="margin-left: 25%;">
                 <div class="form-group col-6 ">
                     <label for="user" style="color:white;">Usuario</label>
-                    <input type="email" class="form-control" name="user" aria-describedby="emailHelpId" placeholder="">
+                    <input type="email" class="form-control" name="user" aria-describedby="emailHelpId" placeholder="" required>
                     <small id="emailHelpId" class="form-text text-muted" style="color:white;">Coloque su correo o su nombre de usuario</small>
                 </div>
                 <div class="form-group col-6">
                     <label for="password" style="color:white;">Contraseña</label>
-                    <input type="password" class="form-control" name="password" placeholder="" minlength="8">
+                    <input type="password" class="form-control" name="password" placeholder="" minlength="8" required>
                 </div>
                
 

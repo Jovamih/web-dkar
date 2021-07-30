@@ -15,6 +15,7 @@
     
   </head>
   <body class="justify-content-center">
+
   <header>
 		
 		<div class="logo">
@@ -53,11 +54,9 @@
   <h2 style="text-align: center;">Consultar catalogo de productos</h2>
     <!-- FORMULARIO DE CONSULTA-->
     <div class="container justify-content-center">
-            <form action="./index.php" method="POST" enctype='multipart/form-data'>
-                
-                
-                    
-                <div class="container justify-content-center align-items-center">
+            <form action="./index.php" method="POST">
+
+                <div class="row justify-content-center align-items-center">
                         <label for="" class="form-label">Filtrar por </label>
                         <div class="custom-control custom-radio custom-control-inline">
                               <input type="radio" id="check_name" name="checkname" class="custom-control-input" onchange="javascript:showInputName();" checked>
@@ -68,26 +67,39 @@
                               <label class="custom-control-label" for="check_category">Categoria</label>
                         </div>
                 </div>   
-                <div class="form-group justify-content-center align-items-center" id="input-nombre" style="display:block;">
-                  <label for="nombre"></label>
-                  <input type="text" class="form-control row" name="nombre" id="nombre" value="">
-                  <small id="helpId" class="text-muted">Ingrese el nombre de la prenda a buscar</small>
-                </div>
+                <div class="row justify-content-center align-items-center" id="input-nombre" style="display:block;">
+                 
+                  <div class=" d-flex flex-column justify-content-center text-center" >
+                      <label for="nombre"></label>
+                      <input type="text" class="form-control row" name="nombre" id="nombre" value="" style="margin-left:40%; width:20%;">
+                      <small id="helpId" class="text-muted">Ingrese el nombre de la prenda a buscar</small>
+                  </div>
+                </div>  
+                
               
-                <div class="form-group justify-content-center align-items-center" id="categoria-div" style="display:none;">
-                    <label for="categoria-selector">Seleccionar categoria: </label>
-                    <select class="custom-select row" name="categoria" id="categoria">
-                     
-                      <option value="chompa" selected>Chompa</option>
-                      <option value="conjunto">Conjunto</option>
-                      <option value="pantalones">Pantalones</option>
-                      <option value="otros">Otros</option>
-                    </select>
+                <div class="row justify-content-center align-items-center" id="categoria-div" style="display:none;">
+                    <div class="col"  style="margin-left:40%; width:20%; margin-bottom:1%;">
+                        <label for="categoria-selector">Seleccionar categoria: </label>
+                        <select class="custom-select row" name="categoria" id="categoria" >
+                        
+                          <option value="chompa" selected>Chompa</option>
+                          <option value="conjunto">Conjunto</option>
+                          <option value="pantalon">Pantalones</option>
+                          <option value="polo">Polos</option>
+                          <option value="otros">Otros</option>
+                        </select>
+                    </div>    
+                
                 </div>
              
                 <div class="row justify-content-center align-items-center">
-                    <Input type="submit" value="Buscar" class="btn btn-primary">
-                    <input type="reset" value="Limpiar" class="btn btn-danger">
+                   <div class="col-sm-2">
+                       <Input type="submit" value="Buscar" class="btn btn-primary">
+                   </div>
+                   <div class="col-sm-2">
+                      <input type="reset" value="Limpiar" class="btn btn-danger">
+                   </div>
+                    
                 </div>
         </form>
     </div>
@@ -116,15 +128,13 @@
             $nombre_producto = $_POST['nombre'];
             $categoria_producto=$_POST['categoria'];
             //conuslta SQL
-            $sql = "SELECT P.idProducto as ID, P.nombre as nombre, C.nombre as color,T.nombre as talla,C.nombre,P.precioUnitario as precioUnit,P.unidadesDisp as unidades,P.imagen as imagen FROM Producto as P
-                             LEFT JOIN Categoria as C
-                             ON P.idCategoria=C.idCategoria
-                             LEFT JOIN Talla as T
-                             ON P.idTalla=T.idTalla
-                             LEFT JOIN Color as C
-                             ON P.idColor=C.idColor
-                   WHERE P.nombre LIKE '%$nombre_producto%' OR C.nombre LIKE '%$categoria_producto%'";
-           
+            $sql = "SELECT P.idProducto as ID, P.nombre as nombre, CL.nombre as color,T.nombre as talla,CT.nombre as categoria,P.precioUnitario as precioUnit,P.unidadesDisp as unidades,P.imagen as imagen
+            FROM Producto as P 
+            LEFT JOIN Categoria as CT ON P.idCategoria=CT.idCategoria 
+            LEFT JOIN Talla as T ON P.idTalla=T.idTalla 
+            LEFT JOIN Color as CL ON P.idColor=CL.idColor
+            WHERE P.nombre LIKE  '%$nombre_producto%' AND CT.nombre LIKE '%$categoria_producto%'";
+            //die($sql);
             $result = mysqli_query($conexion, $sql);
             //cuantos reultados hay en la busqueda
             $num_resultados = mysqli_num_rows($result);
@@ -138,7 +148,7 @@
                                 //para obtener los credenciales del formulario
                     echo  "<td>".$row['ID']."</td>";
                     echo  "<td>".$row['nombre']."</td>";    
-                    
+                    echo  "<td>".$row['categoria']."</td>";  
                     echo "<td>".$row['talla']."</td>";
                     echo "<td>".$row['color']."</td>";
                     echo "<td>".$row['precioUnit']."</td>";
