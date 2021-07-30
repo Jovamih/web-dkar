@@ -147,8 +147,35 @@
                     echo '<img class="rounded" src="data:image/jpeg;base64,'.base64_encode( $row['imagen'] ).'" style="height:100px;width:100px";/>';
                     echo "</td>";
                     echo "<td>";
-                    echo "<a class='btn btn-primary' role='button' href='../model/consultar_historia.php?dni=".$row['ID']."'>Consultar</a>";
-                    echo "<a class='btn btn-warning m-1' role='button' href='../model/registrar_historia.php?dni=".$row['ID']."'>Registrar</a>";
+                    echo "<a class='btn btn-warning' role='button' data-toggle='modal' data-target='#myModal'>Ver</a>";
+                    echo '<div class="modal fade" id="myModal" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                          <!-- Modal Header -->
+                          <div class="modal-header">
+                            <h4 class="modal-title">'.$row['nombre'].'</h4>
+                            <button type="button" class="close" data-dismiss="modal">×</button>
+                          </div>
+                          <!-- Modal body -->
+                          <div class="modal-body">
+                            <img class="rounded" src="data:image/jpeg;base64,'.base64_encode( $row['imagen'] ).'" style="height:100px;width:100px";/>
+                            <h3>Unidades disponibles</h3>
+                            <h4>Small <span class="badge badge-warning">'.$row['unidades'].'</span></h4>
+                            <h3>Talla</h3>
+                            <h5>Small <span class="badge badge-success">'.$row['talla'].'</span></h5>
+                            <h3>Color</h3>
+                            <h5>Small <span class="badge badge-success">'.$row['color'].'</span></h5>
+                            <h3>Precio unitario</h3>
+                            <h4>Small <span class="badge badge-warning">'.$row['precioUnit'].'</span></h4>
+                          </div>
+                          <!-- Modal footer -->
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                            
+                          </div>
+                      </div>
+                    </div>
+                  </div>';
                     echo "</td>";
              echo " </tr>";
             }
