@@ -1,5 +1,8 @@
 <?php
-        include_once("../database/conexion.php");
+        //include_once("../database/conexion.php");
+        if($_SESSION['user']!=null){
+          die("Error de conexion. Talvez se deba a su conexion a internet o al acceder a un sitio con privilegios insuficientes");
+        }
 ?>
 <!doctype html>
 <html lang="es">
@@ -124,7 +127,7 @@
   <tbody class="myTable">
         <?php
             if(isset($_POST["nombre"])){
-          
+            include_once("../database/conexion.php");
             $nombre_producto = $_POST['nombre'];
             $categoria_producto=$_POST['categoria'];
             //conuslta SQL
@@ -190,6 +193,8 @@
              echo " </tr>";
             }
         }
+        //cerramos la conexion a la base de datos debido a que ya no la necesitamos
+        mysqli_close($conexion);
         ?>
     </tbody>
     </table>

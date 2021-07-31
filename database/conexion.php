@@ -9,8 +9,7 @@ try{
                 //die("Conexion exitosa al servidor AWS");
             }
 }catch(Exception $e){
-
-
+    die("La conexion a una base de datos inexistente ha sido realizada");
 }
 
 ?>

@@ -9,6 +9,8 @@
         if(mysqli_num_rows($result) > 0){
             $row = mysqli_fetch_array($result);
             $_SESSION['user'] = $row['user'];
+            //cerrar la conexion a la base de datos a la vez que se cierra el script
+            mysqli_close($conexion);
             header("Location:../consultar_admin/");
         }
     }
