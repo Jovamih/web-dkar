@@ -1,10 +1,11 @@
 <?php
-    include_once("../database/conexion.php");
     if(isset($_POST['user']) && isset($_POST['password'])){
+      session_start();
         $user = $_POST['user'];
         $password = $_POST['password'];
         $query = "SELECT * FROM Usuario WHERE user = '$user' AND password = '$password'";
         //die($query);
+        include_once("../database/conexion.php");
         $result = mysqli_query($conexion, $query);
         if(mysqli_num_rows($result) > 0){
             $row = mysqli_fetch_array($result);

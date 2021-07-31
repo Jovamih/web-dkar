@@ -1,6 +1,7 @@
 <?php
+        session_start();
         //include_once("../database/conexion.php");
-        if($_SESSION['user']!=null){
+        if(!$_SESSION['user']){
           die("Error de conexion. Talvez se deba a su conexion a internet o al acceder a un sitio con privilegios insuficientes");
         }
 ?>
@@ -192,9 +193,10 @@
                     echo "</td>";
              echo " </tr>";
             }
-        }
-        //cerramos la conexion a la base de datos debido a que ya no la necesitamos
+            //cerramos la conexion a la base de datos debido a que ya no la necesitamos
         mysqli_close($conexion);
+        }
+        
         ?>
     </tbody>
     </table>
