@@ -1,7 +1,7 @@
 //Función para cargar las categorías al campo "select".
 function cargar_categorias() {
     //Inicializamos el array.
-    var array = ["Polo", "Pantalon", "Abrigo", "Conjunto", "Otro"];
+    var array = ["Polo", "Pantalon", "Polera", "Conjunto", "Otro"];
     //Ordena el array alfabeticamente.
     array.sort();
     //Pasamos a la funcion addOptions(el ID del select, las categorias cargadas en el array).
@@ -26,9 +26,9 @@ function cargar_subcategorias() {
     var listaSubcategorias = {
         polo: ["Polo Cuello Redondo", "Polo Cuello Camisero", "Polo Cuello Redondo ML", "Polo Cuello Camisero ML"],
         pantalon: ["Buzzo", "Jogger"],
-        abrigo: ["Polera con capucha", "Polera sin capucha", "Casaca"],
+        polera: ["Polera con capucha", "Polera sin capucha"],
         conjunto: ["Conjunto Sport", "Conjunto Polo-Short"],
-        otro: ["Bibiri", "Short"]
+        otro: ["Casaca", "Bividi", "Short"]
     }
 
     //Declaramos un array donde guardamos todos los elementos de tipo id=provincias e id=pueblos.
