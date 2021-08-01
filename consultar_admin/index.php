@@ -56,7 +56,7 @@
   <h2 style="text-align: center;">Consultar catalogo de productos</h2>
     <!-- FORMULARIO DE CONSULTA-->
     <div class="container justify-content-center">
-            <form action="." method="POST">
+            <form action="./" method="POST">
 
                 <div class="row justify-content-center align-items-center">
                         <label for="" class="form-label">Filtrar por </label>
