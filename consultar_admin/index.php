@@ -32,7 +32,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="../inicio_admin/">Inicio <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="../registrar_admin/RegistrarIngreso.html">Ingreso de prendas</a>
@@ -41,7 +41,7 @@
         <a class="nav-link" href="../salida_admin/SalidaProducto.html">Salida de prendas</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="index.php">Ver prendas</a>
+        <a class="nav-link " href="./">Ver prendas</a>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="#">Codigo de prendas</a>
@@ -56,7 +56,7 @@
   <h2 style="text-align: center;">Consultar catalogo de productos</h2>
     <!-- FORMULARIO DE CONSULTA-->
     <div class="container justify-content-center">
-            <form action="./index.php" method="POST">
+            <form action="." method="POST">
 
                 <div class="row justify-content-center align-items-center">
                         <label for="" class="form-label">Filtrar por </label>
