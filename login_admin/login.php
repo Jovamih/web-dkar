@@ -12,7 +12,7 @@
             $_SESSION['user'] = $row['user'];
             //cerrar la conexion a la base de datos a la vez que se cierra el script
             mysqli_close($conexion);
-            header("Location:../consultar_admin/");
+            header("Location:../inicio_admin/inicio.html");
         }
     }
 ?>

@@ -1,8 +1,10 @@
 <?php
         session_start();
         //include_once("../database/conexion.php");
-        if(!$_SESSION['user']){
+        if(!isset($_SESSION['user'])){
           die("Error de conexion. Talvez se deba a su conexion a internet o al acceder a un sitio con privilegios insuficientes");
+        }else{
+          //en caso de que si este definida obtenemos algun valor
         }
 ?>
 <!doctype html>
@@ -22,12 +24,8 @@
 
   <header>
 		
-		<div class="logo">
-			<h3>BOUTIQUE D'KAR</h3>
-			<p>Lo mejor de moda para <span>ellos!</span></p>
-		</div>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Menu principal</a>
+  <a class="navbar-brand" href="#">Boutique D´KAR</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -37,19 +35,19 @@
         <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Ingreso de prendas</a>
+        <a class="nav-link" href="../registrar_admin/RegistrarIngreso.html">Ingreso de prendas</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Salida de prendas</a>
+        <a class="nav-link" href="../salida_admin/SalidaProducto.html">Salida de prendas</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="#">Ver prendas</a>
+        <a class="nav-link " href="index.php">Ver prendas</a>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="#">Codigo de prendas</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="#">Cerrar sesion</a>
+        <a class="nav-link " href="../cerrar_sesion/cerrar_sesion.php">Cerrar sesion</a>
       </li>
     </ul>
   </div>
@@ -153,7 +151,7 @@
             <td><?php echo $row['categoria']; ?></td>
             <td><?php echo $row['talla']; ?></td>
             <td><?php echo $row['color']; ?></td>
-            <td><?php echo $row['precioUnit']; ?></td>
+            <td><?php echo 'S./'.round($row['precioUnit'],2); ?></td>
             <td><?php echo $row['unidades']; ?></td>
             <td><img class="rounded" src=<?php echo "data:image/jpeg;base64,'".base64_encode($row['imagen'])."'";?> width="100" height="100"></td>
             <td>
@@ -181,7 +179,7 @@
                             <h3>Categoria</h3>
                             <h5>Actual <span class="badge badge-success"><?php echo $row['categoria']; ?></span></h5>
                           
-                            <h3><span class="badge badge-dark">Precio por unidad S/<?php echo '  '.$row['precioUnit'];?></span></h3>
+                            <h3><span class="badge badge-dark">Precio por unidad S/<?php echo '  '.round($row['precioUnit'],2);?></span></h3>
                           </div>
                           <!-- Modal footer -->
                           <div class="modal-footer">
