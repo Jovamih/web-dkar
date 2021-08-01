@@ -16,6 +16,82 @@ header {
     z-index: 100;
 }
 
+.contenedor {
+    width: 100%;
+    height: 8vh;
+    background: #000;
+}
+
+
+/*formato para todas las fuentes de letras en bootstrap*/
+
+.formato-fuente-boostrap {
+    font-family: 'Oswald', sans-serif;
+}
+
+
+/*MENU PARA CELULAR*/
+
+#menuprincipal {
+    display: none;
+    /*ocultamos la caja checked*/
+}
+
+header .contenedor label {
+    float: right;
+    font-size: 30px;
+    margin: 5px 10px;
+    padding: 10px 10px;
+    color: #fff;
+    cursor: pointer;
+    /*aparece una mano si se pasa sobre el*/
+}
+
+.contenedor .menu {
+    position: absolute;
+    top: 7vh;
+    /*depende del tamanio del header*/
+    left: 0;
+    width: 28%;
+    height: 100%;
+    /*ocupa siempre el 100 de alto de la ventana*/
+    background: rgba(51, 51, 51, 0.95);
+    transition: all 0.5s;
+    transform: translateX(-100%);
+    /*trasladar el menu de manera horizontal a la izquierda*/
+}
+
+
+/*MENU NAVEGACION ESCRITORIO*/
+
+.contenedor .menu a {
+    display: block;
+    color: #000;
+    font-weight: bold;
+    /*negrita*/
+    height: 8vh;
+    /*dependel del header*/
+    text-decoration: none;
+    padding: 15px;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.menu a:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+
+/*cuando haga clic en el icono label selecciona el .menu*/
+
+#menuprincipal:checked~.menu {
+    transform: translateX(0%);
+    /*trasladar el menu de manera horizontal*/
+}
+
 
 /*MENU NAVEGACION ESCRITORIO*/
 
@@ -163,5 +239,28 @@ i {
         font-size: 14px;
         padding-bottom: 0px;
         margin-bottom: 0px;
+    }
+}
+
+
+/****************responsive**********/
+
+@media (min-width: 1024px) {
+    .contenedor .menu {
+        background: #4682B4;
+        /*mismo color que el header*/
+        position: static;
+        width: auto;
+        height: auto;
+        transform: translateX(0%);
+        float: right;
+        display: flex;
+        /*alinea todo de forma horizontal*/
+    }
+    .contenedor .menu a {
+        border: none;
+    }
+    header .contenedor label {
+        display: none;
     }
 }

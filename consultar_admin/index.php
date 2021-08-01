@@ -20,10 +20,28 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
   </head>
-  <body class="justify-content-center">
+  <body >
 
   <header>
-		
+       
+        <div class="contenedor">
+            <input type="checkbox" id="menuprincipal">
+            <label class="fas fa-bars" for="menuprincipal"></label>
+            <nav class="menu">
+                <a href="../inicio_admin/">INICIO</a></li>
+                <a href="../registrar_admin/RegistrarIngreso.html">INGRESO DE PRENDAS</a></li>
+                <a href="SalidaProducto.html">SALIDA DE PRENDAS</a></li>
+                <a href="../consultar_admin/">VER PRENDAS</a></li>
+                <a href="#">CODIGOS DE PRENDAS</a></li>
+                <a href="../cerrar_sesion/cerrar_sesion.php">CERRAR SESIÓN</a></li>
+            </nav>
+        </div>
+        <div class="logo">
+            <h3>BOUTIQUE D'KAR</h3>
+            <p>Lo mejor de moda para <span>ellos!</span></p>
+        </div>
+    </header>
+		<!--
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Boutique D´KAR</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,15 +69,15 @@
       </li>
     </ul>
   </div>
-</nav>	
-	</header>
+</nav>	 -->
+  <main class="justify-content-center formato-fuente-boostrap">
   <h2 style="text-align: center;">Consultar catalogo de productos</h2>
     <!-- FORMULARIO DE CONSULTA-->
     <div class="container justify-content-center">
             <form action="./" method="POST">
 
                 <div class="row justify-content-center align-items-center">
-                        <label for="" class="form-label">Filtrar por </label>
+                        <label for="" class="form-label" style="margin-right:1%;">Filtrar por </label>
                         <div class="custom-control custom-radio custom-control-inline">
                               <input type="radio" id="check_name" name="checkname" class="custom-control-input" onchange="javascript:showInputName();" checked>
                               <label class="custom-control-label" for="check_name">Nombre producto</label>
@@ -94,7 +112,7 @@
                 
                 </div>
              
-                <div class="row justify-content-center align-items-center">
+                <div class="row justify-content-center align-items-center" style="margin-top:1%;">
                    <div class="col-sm-2">
                        <Input type="submit" value="Buscar" class="btn btn-primary">
                    </div>
@@ -107,7 +125,7 @@
     </div>
     <!--TABLA DE CONTENIDOS-->
 
-    <div class="container-fluid">
+    <div class="container-fluid" style="margin-top:1%;">
     <table class="table">
    <thead class="table-primary">
     <tr>
@@ -204,7 +222,7 @@
 
     </div>
     
-      
+      </main>
     <footer>
 		<div class="pie fixed-bottom">
 			<a href="#"><i class="fab fa-facebook-square fa-2x"></i></a>
