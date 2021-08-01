@@ -12,7 +12,15 @@
             $_SESSION['user'] = $row['user'];
             //cerrar la conexion a la base de datos a la vez que se cierra el script
             mysqli_close($conexion);
-            header("Location:../consultar_admin/");
+            header("Location:../inicio_admin/");
+        }else{
+          echo '
+          <script>
+              alert("Inicie sesión primero");
+              window.location = "./";
+          </script>
+        ';
+        die();
         }
     }
 ?>
@@ -50,7 +58,7 @@
                 </div>
                 <div class="col-lg-6">
                 <div class="container-fluid">
-                  <form action="login.php" method="post" class="text-center justify-content-center" style="margin-top:5%;">
+                  <form action="index.php" method="post" class="text-center justify-content-center" style="margin-top:5%;">
             <h1 style="color:black;text-align:center;">Login de Usuario</h1>
             <div class="container" style="margin-left: 25%;">
                 <div class="form-group col-6 ">

@@ -1,8 +1,10 @@
 <?php
         session_start();
         //include_once("../database/conexion.php");
-        if(!$_SESSION['user']){
+        if(!isset($_SESSION['user'])){
           die("Error de conexion. Talvez se deba a su conexion a internet o al acceder a un sitio con privilegios insuficientes");
+        }else{
+          //en caso de que si este definida obtenemos algun valor
         }
 ?>
 <!doctype html>
@@ -22,34 +24,30 @@
 
   <header>
 		
-		<div class="logo">
-			<h3>BOUTIQUE D'KAR</h3>
-			<p>Lo mejor de moda para <span>ellos!</span></p>
-		</div>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Menu principal</a>
+  <a class="navbar-brand" href="#">Boutique D´KAR</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="../inicio_admin/">Inicio <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Ingreso de prendas</a>
+        <a class="nav-link" href="../registrar_admin/RegistrarIngreso.html">Ingreso de prendas</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Salida de prendas</a>
+        <a class="nav-link" href="../salida_admin/SalidaProducto.html">Salida de prendas</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="#">Ver prendas</a>
+        <a class="nav-link " href="./">Ver prendas</a>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="#">Codigo de prendas</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="#">Cerrar sesion</a>
+        <a class="nav-link " href="../cerrar_sesion/cerrar_sesion.php">Cerrar sesion</a>
       </li>
     </ul>
   </div>
@@ -58,7 +56,7 @@
   <h2 style="text-align: center;">Consultar catalogo de productos</h2>
     <!-- FORMULARIO DE CONSULTA-->
     <div class="container justify-content-center">
-            <form action="./index.php" method="POST">
+            <form action="./" method="POST">
 
                 <div class="row justify-content-center align-items-center">
                         <label for="" class="form-label">Filtrar por </label>
@@ -146,63 +144,66 @@
             //mostrando informacion de los perros y detalle
             for ($i=0; $i <$num_resultados; $i++) {
             $row = mysqli_fetch_array($result); 
-      
-
-            echo "<tr>";
-                                //para obtener los credenciales del formulario
-                    echo  "<td>".$row['ID']."</td>";
-                    echo  "<td>".$row['nombre']."</td>";    
-                    echo  "<td>".$row['categoria']."</td>";  
-                    echo "<td>".$row['talla']."</td>";
-                    echo "<td>".$row['color']."</td>";
-                    echo "<td>".$row['precioUnit']."</td>";
-                    echo "<td>".$row['unidades']."</td>";
-                    echo "<td>";
-                    echo '<img class="rounded" src="data:image/jpeg;base64,'.base64_encode( $row['imagen'] ).'" style="height:100px;width:100px";/>';
-                    echo "</td>";
-                    echo "<td>";
-                    echo "<a class='btn btn-warning' role='button' data-toggle='modal' data-target='#myModal'>Ver</a>";
-                    echo '<div class="modal fade" id="myModal" aria-hidden="true" style="display: none;">
+        ?>
+            <tr>  
+            <td><?php echo $row['ID']; ?></td>
+            <td><?php echo $row['nombre']; ?></td>
+            <td><?php echo $row['categoria']; ?></td>
+            <td><?php echo $row['talla']; ?></td>
+            <td><?php echo $row['color']; ?></td>
+            <td><?php echo 'S./'.round($row['precioUnit'],2); ?></td>
+            <td><?php echo $row['unidades']; ?></td>
+            <td><img class="rounded" src=<?php echo "data:image/jpeg;base64,'".base64_encode($row['imagen'])."'";?> width="100" height="100"></td>
+            <td>
+              <div class="container">
+                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target=<?php echo "#myModal".$row['ID']; ?>>
+                    Ver
+                  </button>
+                  <div class="modal fade" id=<?php echo "myModal".$row['ID']; ?>>
                     <div class="modal-dialog modal-dialog-centered">
                       <div class="modal-content">
                           <!-- Modal Header -->
                           <div class="modal-header">
-                            <h4 class="modal-title">'.$row['nombre'].'</h4>
-                            <button type="button" class="close" data-dismiss="modal">×</button>
+                            <h2 class="modal-title"><?php echo $row['nombre'];?></h2><br>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
                           </div>
                           <!-- Modal body -->
                           <div class="modal-body">
-                            <img class="rounded" src="data:image/jpeg;base64,'.base64_encode( $row['imagen'] ).'" style="height:100px;width:100px";/>
+                            <div class="container justify-content-center text-center">
+                                  <img class="rounded" src=<?php echo "data:image/jpeg;base64,'".base64_encode($row['imagen'])."'";?> width="200" height="200">
+                            </div>
                             <h3>Unidades disponibles</h3>
-                            <h4>Small <span class="badge badge-warning">'.$row['unidades'].'</span></h4>
-                            <h3>Talla</h3>
-                            <h5>Small <span class="badge badge-success">'.$row['talla'].'</span></h5>
+                            <h5>Unidades <span class="badge badge-warning"><?php echo $row['unidades'].' unidades';?></span></h5>
                             <h3>Color</h3>
-                            <h5>Small <span class="badge badge-success">'.$row['color'].'</span></h5>
-                            <h3>Precio unitario</h3>
-                            <h4>Small <span class="badge badge-warning">'.$row['precioUnit'].'</span></h4>
+                            <h5>Actual <span class="badge badge-primary"><?php echo $row['color']; ?></span></h5>
+                            <h3>Categoria</h3>
+                            <h5>Actual <span class="badge badge-success"><?php echo $row['categoria']; ?></span></h5>
+                          
+                            <h3><span class="badge badge-dark">Precio por unidad S/<?php echo '  '.round($row['precioUnit'],2);?></span></h3>
                           </div>
                           <!-- Modal footer -->
                           <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                            
+                           
                           </div>
                       </div>
                     </div>
-                  </div>';
-                    echo "</td>";
-             echo " </tr>";
-            }
-            //cerramos la conexion a la base de datos debido a que ya no la necesitamos
-        mysqli_close($conexion);
-        }
-        
-        ?>
+                  </div>
+                  </div>
+                </td>
+            </tr>
+         <?php 
+          } //Cierra el for
+          mysqli_close($conexion);//Cierra la conexion
+        }//Cierra el if
+
+         ?> 
+                  
     </tbody>
     </table>
 
-
     </div>
+    
       
     <footer>
 		<div class="pie fixed-bottom">

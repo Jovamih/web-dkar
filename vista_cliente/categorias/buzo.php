@@ -128,7 +128,7 @@
           <!--detalles-->
             <div class="detalles">                                              <!--asignamos nombre segun el boton de for-->
               <button type="button" class="btn btn-success" data-toggle="modal" data-target=<?php print '#btn'.$x?>>
-              Ver detalles
+              Ver detalles 
               </button>
               <div class="modal fade" id=<?php echo 'btn'.$x?>>
                 <div class="modal-dialog modal-dialog-centered">
