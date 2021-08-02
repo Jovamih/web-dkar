@@ -22,3 +22,33 @@ function showInputCategory() {
     check_name.checked = false;
     check_category.checked = true;
 }
+//funcion para realizar el autocompletado
+$(function() {
+    var availableTags = [
+        "ActionScript",
+        "AppleScript",
+        "Asp",
+        "BASIC",
+        "C",
+        "C++",
+        "Clojure",
+        "COBOL",
+        "ColdFusion",
+        "Erlang",
+        "Fortran",
+        "Groovy",
+        "Haskell",
+        "Java",
+        "JavaScript",
+        "Lisp",
+        "Perl",
+        "PHP",
+        "Python",
+        "Ruby",
+        "Scala",
+        "Scheme"
+    ];
+    $("#nombre").autocomplete({
+        source: availableTags
+    });
+});

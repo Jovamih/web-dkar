@@ -21,10 +21,29 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
-  </head>
-  <body >
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-  <header>
+        <!-- Optional JavaScript -->
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+          $(document).ready(function(){
+            $("#nombre").on("keyup", function() {
+              var value = $(this).val().toLowerCase();
+              $("#myQuery tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+              });
+            });
+          });
+      
+    </script>
+    </head>
+    <body>
+    <header>
+
        
         <div class="contenedor">
             <input type="checkbox" id="menuprincipal">
@@ -42,36 +61,9 @@
             <h3>BOUTIQUE D'KAR</h3>
             <p>Lo mejor de moda para <span>ellos!</span></p>
         </div>
+       
     </header>
-		<!--
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Boutique D´KAR</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="../inicio_admin/">Inicio <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../registrar_admin/RegistrarIngreso.html">Ingreso de prendas</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../salida_admin/SalidaProducto.html">Salida de prendas</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " href="./">Ver prendas</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " href="#">Codigo de prendas</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " href="../cerrar_sesion/cerrar_sesion.php">Cerrar sesion</a>
-      </li>
-    </ul>
-  </div>
-</nav>	 -->
+		
   <main class="justify-content-center formato-fuente-boostrap">
   <h2 style="text-align: center;">Consultar catalogo de productos</h2>
     <!-- FORMULARIO DE CONSULTA-->
@@ -92,10 +84,13 @@
                 <div class="row justify-content-center align-items-center" id="input-nombre" style="display:block;">
                  
                   <div class=" d-flex flex-column justify-content-center text-center" >
-                      <label for="nombre"></label>
-                      <input type="text" class="form-control row" name="nombre" id="nombre" value="" style="margin-left:40%; width:20%;">
-                      <small id="helpId" class="text-muted">Ingrese el nombre de la prenda a buscar</small>
+                        <div class="ui-widget">
+                            <label for="nombre"></label>
+                            <input  class="form-control row" name="nombre" id="nombre" value="" style="margin-left:40%; width:20%;">
+                            <small id="helpId" class="text-muted">Ingrese el nombre de la prenda a buscar</small>
+                        </div>
                   </div>
+                
                 </div>  
                 
               
@@ -143,7 +138,7 @@
 
     </tr>
   </thead>
-  <tbody class="myTable">
+  <tbody id="myQuery">
         <?php
             if(isset($_POST["nombre"])){
             include_once("../database/conexion.php");
