@@ -123,6 +123,7 @@
     <!--TABLA DE CONTENIDOS-->
 
     <div class="container-fluid" style="margin-top:1%;">
+    <div class="table-responsive-md">
     <table class="table">
    <thead class="table-primary">
     <tr>
@@ -216,7 +217,7 @@
                   
     </tbody>
     </table>
-
+   </div>
     </div>
     
       </main>
