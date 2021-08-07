@@ -67,7 +67,10 @@ header .contenedor label{
 	width: 85%;
 	margin-left: 7.5%;
 	font-family: 'Oswald', sans-serif;
+	margin-bottom: 20px; /*cuando nav arriba*/
+	text-align: left;
 }
+
 .logo h3{
 	font-size: 50px;
 	line-height: 68px;
@@ -80,10 +83,6 @@ span{
 	border-radius: 5px;
 	padding-left: 5PX;
 	padding-right: 5PX;
-}
-
-.img-principal123{
-	width: 100%;
 }
 
 form{
@@ -116,27 +115,15 @@ input, select{
   margin: 10px 0;
 }
 
-.registroProductos {
+.registroProductos {	
 	background: url(../fondo2.jpg) no-repeat center top;
 	background-size: cover; /*tamaño del fondo*/
-  	height: 690px;  	
-  	text-align: center;
+  	min-height: 690px;
+	padding: 20px;  	  	
   	vertical-align: middle;
-  	text-shadow: #111 0px 0px 10px;
   	font-family: 'Oswald', sans-serif;
+	text-align: center;
 }
-
-.salidaProductos {
-	color: #FFF;
-	background: url(../fondo3.jpg) no-repeat center top;
-	background-size: cover; /*tamaño del fondo*/
-  	height: 690px;  	
-  	text-align: center;
-  	vertical-align: middle;
-  	text-shadow: #111 0px 0px 10px;
-  	font-family: 'Oswald', sans-serif;
-}
-
 
 /****************responsive**********/
 @media	(min-width: 1024px){

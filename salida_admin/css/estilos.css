@@ -22,12 +22,6 @@ header {
     background: #000;
 }
 
-
-/*formato para todas las fuentes de letras en bootstrap*/
-
-.formato-fuente-boostrap {}
-
-
 /*MENU PARA CELULAR*/
 
 #menuprincipal {
@@ -92,41 +86,37 @@ header .contenedor label {
 
 
 /**/
-
-.logo {
-    width: 85%;
-    margin-left: 7.5%;
-    font-family: 'Oswald', sans-serif;
+.logo{
+	width: 85%;
+	margin-left: 7.5%;
+	font-family: 'Oswald', sans-serif;
+	margin-bottom: 20px; /*cuando nav arriba*/
+	text-align: left;
 }
 
-.logo h3 {
-    font-size: 50px;
-    line-height: 68px;
-    color: #000;
-    font-weight: 700;
+.logo h3{
+	font-size: 50px;
+	line-height: 68px;
+	color: #000;
+	font-weight: 700;
 }
 
-span {
-    background: #000;
-    color: #fff;
-    border-radius: 5px;
-    padding-left: 5PX;
-    padding-right: 5PX;
+span{
+	background: #000;
+	color: #fff;
+	border-radius: 5px;
+	padding-left: 5PX;
+	padding-right: 5PX;
 }
 
-.img-principal123 {
-    width: 100%;
-}
-
-form {
-    background-color: rgba(0, 0, 0, 0.6);
-    ;
-    border-radius: 3px;
-    color: #fff;
-    font-size: 1em;
-    padding: 20px;
-    margin: 20px auto;
-    width: 450px;
+form{
+  background-color: rgba(0,0,0,0.6);;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 1em;
+  padding: 20px;
+  margin: 20px auto;
+  width: 450px;
 }
 
 input,
@@ -151,27 +141,14 @@ select {
     margin: 10px 0;
 }
 
-.registroProductos {
-    background: url(../fondo2.jpg) no-repeat center top;
-    background-size: cover;
-    /*tamaño del fondo*/
-    height: 690px;
-    text-align: center;
-    vertical-align: middle;
-    text-shadow: #111 0px 0px 10px;
-    font-family: 'Oswald', sans-serif;
-}
-
 .salidaProductos {
-    color: #FFF;
-    background: url(../fondo3.jpg) no-repeat center top;
-    background-size: cover;
-    /*tamaño del fondo*/
-    height: 690px;
-    text-align: center;
-    vertical-align: middle;
-    text-shadow: #111 0px 0px 10px;
-    font-family: 'Oswald', sans-serif;
+	background: url(../fondoSalida.jpg) no-repeat center top;
+	background-size: cover; /*tamaño del fondo*/
+  	min-height: 806px;
+	padding: 20px;  	  	
+  	text-align: center;
+  	vertical-align: middle;
+  	font-family: 'Oswald', sans-serif;
 }
 
 
