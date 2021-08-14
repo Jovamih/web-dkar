@@ -126,7 +126,8 @@
               </div>
           </div>
           <!--detalles-->
-            <div class="detalles">                                              <!--asignamos nombre segun el boton de for-->
+            <div class="detalles">
+              <!--tanque-->                                              <!--asignamos nombre segun el boton de for-->
               <button type="button" class="btn btn-success" data-toggle="modal" data-target=<?php print '#btn'.$x?>>
               Ver detalles 
               </button>
