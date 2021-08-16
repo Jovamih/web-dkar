@@ -29,7 +29,8 @@
 <html>
 <head>
     <title>BOUTIQUE D'KAR</title>
-    <meta charset="utf-8">    
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="../resources/faviconv2.png"/>    
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
     <script src="https://kit.fontawesome.com/31127b7562.js" crossorigin="anonymous"></script>
     <!--Bootstrap-->
@@ -47,10 +48,9 @@
             <label class="fas fa-bars" for="menuprincipal"></label>
             <nav class="menu">
                 <a href="../inicio_admin/">INICIO</a></li>
-                <a href="RegistrarIngreso.php">INGRESO DE PRENDAS</a></li>
+                <a href="RegistrarIngreso.php">AGREGAR PRENDAS</a></li>
                 <a href="../salida_admin/SalidaProducto.php">SALIDA DE PRENDAS</a></li>
                 <a href="../consultar_admin/">VER PRENDAS</a></li>
-                <a href="#">CODIGOS DE PRENDAS</a></li>
                 <a href="../cerrar_sesion/cerrar_sesion.php">CERRAR SESIÓN</a></li>
             </nav>
         </div>
@@ -59,7 +59,7 @@
     <main>
         <section class="registroProductos">
             <div class="logo">
-                <h3>BOUTIQUE D'KAR</h3>
+            <h3><a href="https://boutiquedkarportal.herokuapp.com/" target="_blank">BOUTIQUE D'KAR</a></h3>
                 <p>Lo mejor de moda para <span>ellos!</span></p>
             </div>
             <div>

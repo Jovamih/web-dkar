@@ -31,6 +31,7 @@
 <head>
     <title>BOUTIQUE D'KAR</title>
     <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="../resources/faviconv2.png"/>
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
     <script src="https://kit.fontawesome.com/31127b7562.js" crossorigin="anonymous"></script>
     <!--Bootstrap-->
@@ -49,19 +50,18 @@
             <label class="fas fa-bars" for="menuprincipal"></label>
             <nav class="menu">
                 <a href="../inicio_admin/">INICIO</a></li>
-                <a href="../registrar_admin/RegistrarIngreso.php">INGRESO DE PRENDAS</a></li>
+                <a href="../registrar_admin/RegistrarIngreso.php">AGREGAR PRENDAS</a></li>
                 <a href="SalidaProducto.php">SALIDA DE PRENDAS</a></li>
-                <a href="../consultar_admin/">VER PRENDAS</a></li>
-                <a href="#">CODIGOS DE PRENDAS</a></li>
+                <a href="../consultar_admin/">VER PRENDAS</a></li>                
                 <a href="../cerrar_sesion/cerrar_sesion.php">CERRAR SESIÓN</a></li>
             </nav>
         </div>
     </header>
 
-    <main>
+    <main class="justify-content-center formato-fuente-boostrap">
     <section class="salidaProductos">
-            <div class="logo">
-                <h3>BOUTIQUE D'KAR</h3>
+            <div class="logo"> 
+                <h3><a href="https://boutiquedkarportal.herokuapp.com/" target="_blank">BOUTIQUE D'KAR</a></h3>
                 <p>Lo mejor de moda para <span>ellos!</span></p>
             </div>
             <div>
@@ -83,8 +83,6 @@
                     QUITAR PRODUCTOS
                 </button>
             </form>
-
-
 
             <div class="modal fade" id="ConfirmacionIngreso" tabindex="-1" role="dialog" aria-labelledby="TituloModal" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -110,7 +108,65 @@
                 </div>
             </div>
 
+            <div>
+                <h2 style="text-align: center;">Buscar código</h2>
+            </div>
+
+            <div class=" d-flex flex-column justify-content-center text-center" >
+                <div class="ui-widget">
+                            <label for="nombre"></label>
+                            <input  class="form-control row" name="nombre" id="nombre" value="" style="margin-left:40%; width:20%;">
+                            <small id="helpId" class="text-muted">Ingrese el nombre de la prenda</small>
+                </div>
+            </div>
+            
+
+            <!--TABLA DE CONTENIDOS-->
+            <section class="buscando">
+                <div class="container-fluid" style="margin-top:1%;">
+                    <div class="table-responsive-md">
+                    <table class="table">
+                        <thead class="table-primary">
+                            <tr>
+                                <th scope="col">Codigo Producto</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Talla</th>                            
+                                <th scope="col">Color</th>                            
+                                <th scope="col">Unidades disp.</th>
+                            </tr>
+                        </thead>
+                        <tbody id="myQuery">
+                            <tr>
+                                <td scope="col">103XXL150</td>
+                                <td scope="col">Polo cuello camisero ML</td>
+                                <td scope="col">Extra Extra Large</td>                            
+                                <td scope="col">Amarillo</td>                            
+                                <td scope="col">200 unidades</td>
+                            </tr>
+                            <tr>
+                                <td scope="col">201M130</td>
+                                <td scope="col">Polera con capucha</td>
+                                <td scope="col">Medium</td>                            
+                                <td scope="col">Azul</td>                            
+                                <td scope="col">120 unidades</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </section>
+            
+
         </section>
+
+        
+
+
+
+
+
+
+
     </main>
 
     <footer>
