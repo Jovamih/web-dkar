@@ -23,6 +23,9 @@
     
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -52,8 +55,8 @@
                 <a href="../inicio_admin/">INICIO</a></li>
                 <a href="../registrar_admin/RegistrarIngreso.html">INGRESO DE PRENDAS</a></li>
                 <a href="SalidaProducto.html">SALIDA DE PRENDAS</a></li>
-                <a href="../consultar_admin/">
-                  <img src="img/consultar_prenda.png" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="Ver prendas" style="height:38px;width:35px;padding-bottom:2px;">
+                <a href="../consultar_admin/"><i class="fal fa-eye"></i>
+                  
                  VER PRENDAS</a></li>
                 
                 <a href="../cerrar_sesion/cerrar_sesion.php">CERRAR SESIÓN</a></li>
@@ -113,10 +116,12 @@
              
                 <div class="row justify-content-center align-items-center" style="margin-top:1%;">
                    <div class="col-sm-2">
-                       <Input type="submit" value="Buscar" class="btn btn-primary">
+                       <button type="submit" class="btn btn-primary"><i class="fal fa-search"></i>Buscar</button>
+                       
                    </div>
                    <div class="col-sm-2">
-                      <input type="reset" value="Limpiar" class="btn btn-danger">
+                     <button type="reset" class="btn btn-danger"><i class="fas fa-eraser"></i>Limpiar</button>
+                
                    </div>
                     
                 </div>
