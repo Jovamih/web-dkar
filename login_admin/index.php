@@ -1,28 +1,35 @@
 <?php
-    if(isset($_POST['user']) && isset($_POST['password'])){
-      session_start();
-        $user = $_POST['user'];
-        $password = $_POST['password'];
-        $query = "SELECT * FROM Usuario WHERE user = '$user' AND password = '$password'";
-        //die($query);
-        include_once("../database/conexion.php");
-        $result = mysqli_query($conexion, $query);
-        if(mysqli_num_rows($result) > 0){
-            $row = mysqli_fetch_array($result);
-            $_SESSION['user'] = $row['user'];
-            //cerrar la conexion a la base de datos a la vez que se cierra el script
-            mysqli_close($conexion);
-            header("Location:../inicio_admin/");
-        }else{
-          echo '
-          <script>
-              alert("Inicie sesión primero");
-              window.location = "./";
-          </script>
-        ';
-        die();
-        }
-    }
+     //recoger sesiones activas
+     session_start();
+     if(isset($_SESSION['user'])){
+         header("Location:../inicio_admin/");
+     }else{
+            //SI NO EXISTE. VERIFICAR SI SE HIZO UN POST
+            if(isset($_POST['user']) && isset($_POST['password'])){
+              session_start();
+                $user = $_POST['user'];
+                $password = $_POST['password'];
+                $query = "SELECT * FROM Usuario WHERE user = '$user' AND password = '$password'";
+                //die($query);
+                include_once("../database/conexion.php");
+                $result = mysqli_query($conexion, $query);
+                if(mysqli_num_rows($result) > 0){
+                    $row = mysqli_fetch_array($result);
+                    $_SESSION['user'] = $row['user'];
+                    //cerrar la conexion a la base de datos a la vez que se cierra el script
+                    mysqli_close($conexion);
+                    header("Location:../inicio_admin/");
+                }else{
+                  echo '
+                  <script>
+                      alert("Inicie sesión primero");
+                      window.location = "./";
+                  </script>
+                ';
+                die();
+                }
+            }
+  }
 ?>
 <!doctype html>
 <html lang="es">
@@ -33,6 +40,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/png" href="../resources/faviconv2.png"/>
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/31127b7562.js" crossorigin="anonymous"></script>
@@ -59,7 +68,7 @@
                 <div class="col-lg-6">
                 <div class="container-fluid">
                   <form action="index.php" method="post" class="text-center justify-content-center" style="margin-top:5%;">
-            <h1 style="color:black;text-align:center;">Login de Usuario</h1>
+            <h1 style="color:black;text-align:center;">Iniciar Sesión</h1>
             <div class="container" style="margin-left: 25%;">
                 <div class="form-group col-6 ">
                     <label for="user" style="color:white;">Usuario</label>
@@ -73,7 +82,7 @@
                
 
                 <div class="form-group col-6">
-                    <input type="submit" value="Ingresar" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary"><i class="fal fa-sign-in-alt"></i>Ingresar</button>
                    
                 </div>
                 <div class="form-group col-6">

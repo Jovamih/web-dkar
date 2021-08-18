@@ -33,6 +33,8 @@
     <link rel="icon" type="image/png" href="../resources/faviconv2.png"/>    
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
     <script src="https://kit.fontawesome.com/31127b7562.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <!--Bootstrap-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -47,13 +49,17 @@
             <input type="checkbox" id="menuprincipal">
             <label class="fas fa-bars" for="menuprincipal"></label>
             <nav class="menu">
-                <a href="../inicio_admin/">INICIO</a></li>
+                <a href="../inicio_admin/"><i class="fal fa-home-lg" ></i>INICIO</a></li>
                 <a href="RegistrarIngreso.php">AGREGAR PRENDAS</a></li>
                 <a href="../salida_admin/SalidaProducto.php">SALIDA DE PRENDAS</a></li>
                 <a href="../consultar_admin/">
-                <img src="../consultar_admin/img/consultar_prenda.png" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="Ver prendas" style="height:38px;width:35px;padding-bottom:2px;"> 
+                <i class="fal fa-eye"></i> 
                 VER PRENDAS</a></li>
-                <a href="../cerrar_sesion/cerrar_sesion.php">CERRAR SESIÓN</a></li>
+                <a href="../cerrar_sesion/cerrar_sesion.php">CERRAR SESIÓN
+                <i class="fal fa-sign-out"></i>
+            </a>
+                
+            </li>
             </nav>
         </div>
     </header>

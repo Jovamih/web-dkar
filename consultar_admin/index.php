@@ -52,14 +52,16 @@
             <input type="checkbox" id="menuprincipal">
             <label class="fas fa-bars" for="menuprincipal"></label>
             <nav class="menu">
-                <a href="../inicio_admin/">INICIO</a></li>
-                <a href="../registrar_admin/RegistrarIngreso.html">INGRESO DE PRENDAS</a></li>
-                <a href="SalidaProducto.html">SALIDA DE PRENDAS</a></li>
+                <a href="../inicio_admin/"><i class="fal fa-home-lg" ></i>INICIO</a></li>
+                <a href="../registrar_admin/RegistrarIngreso.php">INGRESO DE PRENDAS</a></li>
+                <a href="../salida_admin/SalidaProducto.php">SALIDA DE PRENDAS</a></li>
                 <a href="../consultar_admin/"><i class="fal fa-eye"></i>
                   
                  VER PRENDAS</a></li>
                 
-                <a href="../cerrar_sesion/cerrar_sesion.php">CERRAR SESIÓN</a></li>
+                <a href="../cerrar_sesion/cerrar_sesion.php">CERRAR SESIÓN
+                <i class="fal fa-sign-out"></i>
+              </a></li>
             </nav>
         </div>
         <div class="logo">
@@ -70,7 +72,7 @@
     </header>
 		
   <main class="justify-content-center formato-fuente-boostrap">
-  <h2 style="text-align: center;">Consultar catalogo de productos</h2>
+  <h2 style="text-align: center;"><i class="fas fa-book-reader" style="color:black;"></i>Consultar catalogo de productos</h2>
     <!-- FORMULARIO DE CONSULTA-->
     <div class="container justify-content-center">
             <form action="./" method="POST">
@@ -179,8 +181,8 @@
             <td><img class="rounded" src=<?php echo "data:image/jpeg;base64,'".base64_encode($row['imagen'])."'";?> width="100" height="100"></td>
             <td>
               <div class="container">
-                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target=<?php echo "#myModal".$row['ID']; ?>>
-                    Ver
+                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target=<?php echo "#myModal".$row['ID']; ?> style="color:black;">
+                   Ver <i class="fas fa-eye" style="text-align:center;margin-left:5px;color:black;"></i>
                   </button>
                   <div class="modal fade" id=<?php echo "myModal".$row['ID']; ?>>
                     <div class="modal-dialog modal-dialog-centered">
