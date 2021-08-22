@@ -52,9 +52,13 @@
             <input type="checkbox" id="menuprincipal">
             <label class="fas fa-bars" for="menuprincipal"></label>
             <nav class="menu">
-                <a href="../inicio_admin/"><i class="fal fa-home-lg" ></i>INICIO</a></li>
-                <a href="../registrar_admin/RegistrarIngreso.php">INGRESO DE PRENDAS</a></li>
-                <a href="../salida_admin/SalidaProducto.php">SALIDA DE PRENDAS</a></li>
+                <a href="../inicio_admin/">
+                <i class="fal fa-home-lg" ></i>INICIO
+                </a></li>
+                <a href="../registrar_admin/RegistrarIngreso.php">
+                <i class="fas fa-plus"></i>INGRESO DE PRENDAS
+              </a></li>
+                <a href="../salida_admin/SalidaProducto.php"><i class="fas fa-minus"></i>SALIDA DE PRENDAS</a></li>
                 <a href="../consultar_admin/"><i class="fal fa-eye"></i>
                   
                  VER PRENDAS</a></li>
