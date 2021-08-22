@@ -49,17 +49,20 @@
             <input type="checkbox" id="menuprincipal">
             <label class="fas fa-bars" for="menuprincipal"></label>
             <nav class="menu">
-                <a href="../inicio_admin/"><i class="fal fa-home-lg" ></i>INICIO</a></li>
-                <a href="RegistrarIngreso.php">AGREGAR PRENDAS</a></li>
-                <a href="../salida_admin/SalidaProducto.php">SALIDA DE PRENDAS</a></li>
-                <a href="../consultar_admin/">
-                <i class="fal fa-eye"></i> 
-                VER PRENDAS</a></li>
-                <a href="../cerrar_sesion/cerrar_sesion.php">CERRAR SESIÓN
-                <i class="fal fa-sign-out"></i>
-            </a>
+                <a href="../inicio_admin/"><i class="fal fa-home-lg" ></i>INICIO</a>
+                <a href="RegistrarIngreso.php">
                 
-            </li>
+                    <i class="fas fa-plus"></i>AGREGAR PRENDAS 
+                </a>
+                <a href="../salida_admin/SalidaProducto.php">
+                    <i class="fas fa-minus"></i>SALIDA DE PRENDAS
+                </a>
+                <a href="../consultar_admin/">
+                    <i class="fal fa-eye"></i> VER PRENDAS
+                </a>                
+                <a href="../cerrar_sesion/cerrar_sesion.php">CERRAR SESIÓN
+                    <i class="fal fa-sign-out"></i>
+                </a>
             </nav>
         </div>
     </header>
@@ -83,7 +86,7 @@
                 </p>
                 <!--SUBCATEGORIA INPUT-->
                 <label for="subcategoria">Seleccione Subcategoría</label>
-                <Select name="Subcategoria" id="Subcategoria">
+                <Select name="Subcategoria" id="Subcategoria">    
 					<Option value = ""> Seleccione subcategoria ...		
 				<p></Select></p>
                 <script src="js/Opciones.js"></script>
@@ -114,16 +117,26 @@
 					<Option value = "Verde"> Verde
 					<Option value = "Morado"> Morado
 				<p></Select></p>
+
+                <button type="button" class="btn btn-success" onclick="Desbloquear()">
+                    <i class="fas fa-check-circle"></i>Validar
+                </button>
+                <script src="js/Desbloqueo.js"></script>
+
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#AyudaValidar">
+                    <i class="fas fa-info-circle"></i>Ayuda
+                </button>                
+                <br><br>
                 <!--CANTIDAD INPUT-->
                 <label for="cantidad">Cantidad a ingresar</label>
-                <input name="Cantidad" type="number" placeholder="Cantidad a ingresar">
+                <input id="Cantidad" name="Cantidad" type="number" placeholder="Cantidad a ingresar" disabled="disabled">
                 <br><br>
-                <!--FOTOS INPUT-->
+                <div id="UploadFotos"></div>
+                <!--FOTOS INPUT
                 <label for="fotos" >Agregue fotos de referencia</label>
                 <input name="FotoA" type="file">                
-                <input name="FotoB" type="file">                
-                <input name="FotoC" type="file">
-                <br><br>
+                <input name="FotoB" type="file">
+                <br><br>-->
                 <!--ENVIAR
                 <div class="boton">
                     <Input name="Registrar" type="submit" value="REGISTRAR INGRESO">
@@ -131,8 +144,37 @@
             </form>
 
             <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ConfirmacionIngreso">
-                INGRESAR PRODUCTOS
+                <i class="fad fa-file-plus"></i>INGRESAR PRODUCTOS
             </button>
+
+            <!--  MODALES    -->
+
+            <div class="modal fade" id="AyudaValidar" tabindex="-1" role="dialog" aria-labelledby="TituloModal" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 id= "TituloModal" class="modal-title">¿Por qué no puedo ingresar una cantidad?</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          </div>
+                          <!-- Modal body -->
+                          <div class="modal-body">
+                              <p>Para poder registrar el número de prendas a ingresar, es necesario:</p>
+                              <p><b>1° </b>Llenar los cuatro primeros campos (Categoría, Subcategoría, Talla, Color)</p>
+                              <p><b>2° </b>Dar clic en el botón validar</p>
+                              <p>Solo así, podrá registrar una cantidad, cabe recordar, que si se intenta agregar un producto que no haya sido 
+                                  registrado previamente, se le pedirá que ingrese dos imágenes, la primera del lado delantero del producto y la
+                                   segunda del lado trasero.
+                                </p>                            
+                                <p>  Muchas gracias por su atención.</p>                                                            
+                          </div>
+                          <!-- Modal footer -->
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-window-close"></i>Cerrar</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fas fa-check-square"></i>Aceptar</button>
+                          </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="modal fade" id="ConfirmacionIngreso" tabindex="-1" role="dialog" aria-labelledby="TituloModal" aria-hidden="true">
                 <div class="modal-dialog" role="document">

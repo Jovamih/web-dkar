@@ -51,16 +51,19 @@
             <input type="checkbox" id="menuprincipal">
             <label class="fas fa-bars" for="menuprincipal"></label>
             <nav class="menu">
-                <a href="../inicio_admin/"><i class="fal fa-home-lg" ></i>INICIO</a></li>
-                <a href="../registrar_admin/RegistrarIngreso.php">AGREGAR PRENDAS</a></li>
-                <a href="SalidaProducto.php">SALIDA DE PRENDAS</a></li>
+                <a href="../inicio_admin/"><i class="fal fa-home-lg" ></i>INICIO</a>
+                <a href="../registrar_admin/RegistrarIngreso.php">
+                    <i class="fas fa-plus"></i>AGREGAR PRENDAS
+                </a>
+                <a href="SalidaProducto.php">
+                    <i class="fas fa-minus"></i>SALIDA DE PRENDAS
+                </a>
                 <a href="../consultar_admin/">
-                <i class="fal fa-eye"></i> 
-                
-                VER PRENDAS</a></li>                
+                    <i class="fal fa-eye"></i> VER PRENDAS
+                </a>                
                 <a href="../cerrar_sesion/cerrar_sesion.php">CERRAR SESIÓN
-                <i class="fal fa-sign-out"></i>
-            </a></li>
+                    <i class="fal fa-sign-out"></i>
+                </a>
             </nav>
         </div>
     </header>
@@ -87,7 +90,7 @@
                     <Input name="Registrar" type="submit" value="REGISTRAR SALIDA">
                 </div>-->
                 <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ConfirmacionIngreso">
-                    QUITAR PRODUCTOS
+                    <i class="fad fa-file-minus"></i>QUITAR PRODUCTOS
                 </button>
             </form>
 
