@@ -142,6 +142,7 @@
       <th scope="col">Talla</th>
       <th scope="col">Color</th>
       <th scope="col">Precio Unitario</th>
+      <th scope="col">Precio Mayor</th>
       <th scope="col">Unidades</th>
       <th scope="col">Imagen</th>
       <th scope="col">View</th>
@@ -156,19 +157,40 @@
                   $nombre_producto = $_POST['nombre'];
                   $categoria_producto=$_POST['categoria'];
                   //conuslta SQL
-                  $sql = "SELECT P.idProducto as ID, P.nombre as nombre, CL.nombre as color,T.nombre as talla,CT.nombre as categoria,P.precioUnitario as precioUnit,P.unidadesDisp as unidades,P.imagen as imagen
-                  FROM Producto as P 
-                  LEFT JOIN Categoria as CT ON P.idCategoria=CT.idCategoria 
-                  LEFT JOIN Talla as T ON P.idTalla=T.idTalla 
-                  LEFT JOIN Color as CL ON P.idColor=CL.idColor
-                  WHERE P.nombre LIKE  '%$nombre_producto%' AND CT.nombre LIKE '%$categoria_producto%'";
+                  $sql = "SELECT P.idProducto as ID,
+                  ST.nombre as nombre, 
+                      CL.nombre as color,
+                      T.nombre as talla,
+                      CT.nombre as categoria,
+                      P.precioUni as precioUnit,
+                      P.precioMay as precioMayor,
+                      P.unidadesDisp as unidades,
+                      I.imagen as imagen
+                                FROM Producto as P 
+                                LEFT JOIN Subcategoria as ST ON P.idSubcategoria=ST.idCategoria
+                                LEFT JOIN Categoria as CT ON ST.idCategoria=CT.idCategoria
+                                LEFT JOIN Talla as T ON P.idTalla=T.idTalla 
+                                LEFT JOIN Color as CL ON P.idColor=CL.idColor
+                                LEFT JOIN Imagen as I ON I.idProducto=P.idProducto AND I.tipoVista='F'
+                                WHERE
+                                 ST.nombre LIKE  '%$nombre_producto%' OR CT.nombre LIKE '%$categoria_producto%';";
             //die($sql);
             }else{//Si no se ha hecho una consulta, se filtran todas las columnas por defectos
-              $sql = "SELECT P.idProducto as ID, P.nombre as nombre, CL.nombre as color,T.nombre as talla,CT.nombre as categoria,P.precioUnitario as precioUnit,P.unidadesDisp as unidades,P.imagen as imagen
-              FROM Producto as P 
-              LEFT JOIN Categoria as CT ON P.idCategoria=CT.idCategoria 
-              LEFT JOIN Talla as T ON P.idTalla=T.idTalla 
-              LEFT JOIN Color as CL ON P.idColor=CL.idColor";
+              $sql = "SELECT P.idProducto as ID,
+              ST.nombre as nombre, 
+                  CL.nombre as color,
+                  T.nombre as talla,
+                  CT.nombre as categoria,
+                  P.precioUni as precioUnit,
+                  P.precioMay as precioMayor,
+                  P.unidadesDisp as unidades,
+                  I.imagen as imagen
+                            FROM Producto as P 
+                            LEFT JOIN Subcategoria as ST ON P.idSubcategoria=ST.idCategoria
+                            LEFT JOIN Categoria as CT ON ST.idCategoria=CT.idCategoria
+                            LEFT JOIN Talla as T ON P.idTalla=T.idTalla 
+                            LEFT JOIN Color as CL ON P.idColor=CL.idColor
+                            LEFT JOIN Imagen as I ON I.idProducto=P.idProducto AND I.tipoVista='F';";
 
             }
             $result = mysqli_query($conexion, $sql);
@@ -186,6 +208,7 @@
             <td><?php echo $row['talla']; ?></td>
             <td><?php echo $row['color']; ?></td>
             <td><?php echo 'S./'.round($row['precioUnit'],2); ?></td>
+            <td><?php echo 'S./'.round($row['precioMayor'],2); ?></td>
             <td><?php echo $row['unidades']; ?></td>
             <td><img class="rounded" src=<?php echo "data:image/jpeg;base64,'".base64_encode($row['imagen'])."'";?> width="100" height="100"></td>
             <td>
@@ -214,6 +237,7 @@
                             <h5>Actual <span class="badge badge-success"><?php echo $row['categoria']; ?></span></h5>
                           
                             <h3><span class="badge badge-dark">Precio por unidad S/<?php echo '  '.round($row['precioUnit'],2);?></span></h3>
+                            <h3><span class="badge badge-dark">Precio por Mayor S/<?php echo '  '.round($row['precioMayor'],2);?></span></h3>
                           </div>
                           <!-- Modal footer -->
                           <div class="modal-footer">
