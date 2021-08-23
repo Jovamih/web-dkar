@@ -207,9 +207,10 @@
             $row = mysqli_fetch_array($result); 
         ?>
             <tr>  
-              <td><b><?php echo $row['nombre']; ?></b></td>
-              <td><b><?php echo $row['categoria']; ?></b></td>
-              <td><b><?php echo $row['ID']; ?></b></td>
+            <td><b><?php echo $row['ID']; ?></b></td>
+            <td><b><?php echo $row['nombre']; ?></b></td>
+            <td><b><?php echo $row['categoria']; ?></b></td>
+              
             <td> <b><?php echo $row['talla']; ?></b></td>
             <td><b><?php echo $row['color']; ?></b></td>
             <td><b><?php echo 'S./'.round($row['precioUnit'],2); ?></b></td>
