@@ -137,8 +137,8 @@
     <!--TABLA DE CONTENIDOS-->
 
     <div class="container-fluid" style="margin-top:1%;">
-    <div class="table-responsive-md">
-    <table class="table">
+    <div class="table-responsive-md" >
+    <table class="table  my-table">
    <thead class="table-primary">
     <tr>
       <th scope="col">Codigo Producto</th>
@@ -191,7 +191,7 @@
                   P.unidadesDisp as unidades,
                   I.imagen as imagen
                             FROM Producto as P 
-                            LEFT JOIN Subcategoria as ST ON P.idSubcategoria=ST.idCategoria
+                            LEFT JOIN Subcategoria as ST ON P.idSubcategoria=ST.idSubcategoria
                             LEFT JOIN Categoria as CT ON ST.idCategoria=CT.idCategoria
                             LEFT JOIN Talla as T ON P.idTalla=T.idTalla 
                             LEFT JOIN Color as CL ON P.idColor=CL.idColor
@@ -207,14 +207,14 @@
             $row = mysqli_fetch_array($result); 
         ?>
             <tr>  
-            <td><?php echo $row['ID']; ?></td>
-            <td><?php echo $row['nombre']; ?></td>
-            <td><?php echo $row['categoria']; ?></td>
-            <td><?php echo $row['talla']; ?></td>
-            <td><?php echo $row['color']; ?></td>
-            <td><?php echo 'S./'.round($row['precioUnit'],2); ?></td>
-            <td><?php echo 'S./'.round($row['precioMayor'],2); ?></td>
-            <td><?php echo $row['unidades']; ?></td>
+              <td><b><?php echo $row['nombre']; ?></b></td>
+              <td><b><?php echo $row['categoria']; ?></b></td>
+              <td><b><?php echo $row['ID']; ?></b></td>
+            <td> <b><?php echo $row['talla']; ?></b></td>
+            <td><b><?php echo $row['color']; ?></b></td>
+            <td><b><?php echo 'S./'.round($row['precioUnit'],2); ?></b></td>
+            <td><b><?php echo 'S./'.round($row['precioMayor'],2); ?></b></td>
+            <td><b><?php echo $row['unidades']; ?></b></td>
             <td><img class="rounded" src=<?php echo "data:image/jpeg;base64,'".base64_encode($row['imagen'])."'";?> width="100" height="100"></td>
             <td>
               <div class="container">
