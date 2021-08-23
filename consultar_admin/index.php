@@ -172,7 +172,7 @@
                       P.unidadesDisp as unidades,
                       I.imagen as imagen
                                 FROM Producto as P 
-                                LEFT JOIN Subcategoria as ST ON P.idSubcategoria=ST.idCategoria
+                                LEFT JOIN Subcategoria as ST ON P.idSubcategoria=ST.idSubcategoria
                                 LEFT JOIN Categoria as CT ON ST.idCategoria=CT.idCategoria
                                 LEFT JOIN Talla as T ON P.idTalla=T.idTalla 
                                 LEFT JOIN Color as CL ON P.idColor=CL.idColor
