@@ -6,7 +6,7 @@
 
 body {
     background-image: url(img/fondo_ropa_resize.jpg);
-    background-repeat: no-repeat;
+    background-repeat: repeat;
 }
 
 
