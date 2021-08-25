@@ -195,7 +195,7 @@
                             LEFT JOIN Categoria as CT ON ST.idCategoria=CT.idCategoria
                             LEFT JOIN Talla as T ON P.idTalla=T.idTalla 
                             LEFT JOIN Color as CL ON P.idColor=CL.idColor
-                            LEFT JOIN Imagen as I ON I.idProducto=P.idProducto AND I.tipoVista='F';";
+                            LEFT JOIN Imagen as I ON I.idProducto=P.idProducto AND I.tipoVista='a';";
 
             }
             $result = mysqli_query($conexion, $sql);
