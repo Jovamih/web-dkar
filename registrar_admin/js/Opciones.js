@@ -1,7 +1,7 @@
 //Función para cargar las categorías al campo "select".
 function cargar_categorias() {
     //Inicializamos el array.
-    var array = ["Polo", "Pantalon", "Polera", "Conjunto", "Otros"];
+    var array = ["Polos", "Pantalones", "Poleras", "Conjuntos", "Otros"];
     //Ordena el array alfabeticamente.
     array.sort();
     //Pasamos a la funcion addOptions(el ID del select, las categorias cargadas en el array).
@@ -15,7 +15,7 @@ function addOptions(domElement, array) {
     for (categoria in array) {
         var opcion = document.createElement("option");
         opcion.text = array[categoria];
-        opcion.value = array[categoria].toLowerCase();
+        opcion.value = array[categoria];
         selector.add(opcion);
     }
 }
@@ -24,11 +24,11 @@ function addOptions(domElement, array) {
 function cargar_subcategorias() {
     //Objeto de categorias con las subcategorias correspondientes.
     var listaSubcategorias = {
-        polo: ["Polo Cuello Redondo", "Polo Cuello Camisero", "Polo Cuello Redondo ML", "Polo Cuello Camisero ML"],
-        pantalon: ["Buzo", "Jogger"],
-        polera: ["Polera con capucha", "Polera sin capucha"],
-        conjunto: ["Conjunto Sport", "Conjunto Polo-Short"],
-        otros: ["Casaca", "Bividi", "Short"]
+        Polos: ["Polo Cuello Redondo", "Polo Cuello Camisero", "Polo Cuello Redondo ML", "Polo Cuello Camisero ML"],
+        Pantalones: ["Buzo", "Jogger"],
+        Poleras: ["Polera con capucha", "Polera sin capucha"],
+        Conjuntos: ["Conjunto Sport", "Conjunto Polo-Short"],
+        Otros: ["Casaca", "Bividi", "Short"]
     }
 
     //Declaramos un array donde guardamos todos los elementos de tipo id=provincias e id=pueblos.
