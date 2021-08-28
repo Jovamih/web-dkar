@@ -216,7 +216,10 @@
             <td><b><?php echo 'S./'.round($row['precioUnit'],2); ?></b></td>
             <td><b><?php echo 'S./'.round($row['precioMayor'],2); ?></b></td>
             <td><b><?php echo $row['unidades']; ?></b></td>
-            <td><img class="rounded" src=<?php echo "data:image/jpeg;base64,'".base64_encode($row['imagen'])."'";?> width="100" height="100"></td>
+            <td>
+            <?php  echo '<img class="rounded" src=data:image/jpeg;base64,'.str_replace("'", '',base64_encode( $row['imagen'] )).' style="height:100px;width:100px";/>'; ?>
+                      
+            </td>
             <td>
               <div class="container">
                   <button type="button" class="btn btn-warning" data-toggle="modal" data-target=<?php echo "#myModal".$row['ID']; ?> style="color:black;">
@@ -233,7 +236,10 @@
                           <!-- Modal body -->
                           <div class="modal-body">
                             <div class="container justify-content-center text-center">
-                                  <img class="rounded" src=<?php echo "data:image/jpeg;base64,'".base64_encode($row['imagen'])."'";?> width="200" height="200">
+                            <?php 
+                            
+                            echo '<img class="rounded" src=data:image/jpeg;base64,'.str_replace("'", '',base64_encode( $row['imagen'] )).' style="height:200px;width:200px";/>'; ?>
+                                  
                             </div>
                             <h3>Unidades disponibles</h3>
                             <h5>Unidades <span class="badge badge-warning"><?php echo $row['unidades'].' unidades';?></span></h5>
