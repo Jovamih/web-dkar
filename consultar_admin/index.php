@@ -182,7 +182,7 @@
                                   //ST.nombre LIKE  '%$nombre_producto%' OR
             //die($sql);
             }else{//Si no se ha hecho una consulta, se filtran todas las columnas por defectos
-              $sql = "SELECT P.idProducto as ID,
+              $sql = "SELECT  P.idProducto as ID,
               ST.nombre as nombre, 
                   CL.nombre as color,
                   T.nombre as talla,
@@ -196,7 +196,7 @@
                             LEFT JOIN Categoria as CT ON ST.idCategoria=CT.idCategoria
                             LEFT JOIN Talla as T ON P.idTalla=T.idTalla 
                             LEFT JOIN Color as CL ON P.idColor=CL.idColor
-                            LEFT JOIN Imagen as I ON I.idProducto=P.idProducto AND I.tipoVista='a';";
+                            LEFT JOIN Imagen as I ON I.idProducto=P.idProducto AND I.tipoVista='a' LIMIT 25;";
 
             }
             $result = mysqli_query($conexion, $sql);
