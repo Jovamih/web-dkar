@@ -5,7 +5,7 @@ function cargar_categorias() {
     //Ordena el array alfabeticamente.
     array.sort();
     //Pasamos a la funcion addOptions(el ID del select, las categorias cargadas en el array).
-    addOptions("Categoria", array);    
+    addOptions("Categoria", array);
 }
 
 //Función para agregar opciones a un <select>.
@@ -27,7 +27,7 @@ function cargar_subcategorias() {
         Polos: ["Polo Cuello Redondo", "Polo Cuello Camisero", "Polo Cuello Redondo ML", "Polo Cuello Camisero ML"],
         Pantalones: ["Buzo", "Jogger"],
         Poleras: ["Polera con capucha", "Polera sin capucha"],
-        Conjuntos: ["Conjunto Sport", "Conjunto Polo-Short"],
+        Conjuntos: ["Conjunto Sport", "Conjunto Polo Short"],
         Otros: ["Casaca", "Bividi", "Short"]
     }
 
@@ -35,24 +35,24 @@ function cargar_subcategorias() {
     var categorias = document.getElementById('Categoria');
     var subcategorias = document.getElementById('Subcategoria');
     //Tomamos como categoriaSeleccionada, el valor del id categoria (var categoria).
-    var categoriaSeleccionada = categorias.value;  
+    var categoriaSeleccionada = categorias.value;
     //Se limpian los pueblos.
     subcategorias.innerHTML = '<option value="">Seleccione subcategoría...</option>'
 
     //Si existe categoriaSeleccionada...
-    if(categoriaSeleccionada !== ""){
+    if (categoriaSeleccionada !== "") {
         //Se seleccionan las subcategorias y se ordenan.
         categoriaSeleccionada = listaSubcategorias[categoriaSeleccionada];
         categoriaSeleccionada.sort();
 
         //Insertamos las subcategorias mediante un FOR.
-        categoriaSeleccionada.forEach(function(subcategoria){
+        categoriaSeleccionada.forEach(function(subcategoria) {
             let opcion = document.createElement('option');
             opcion.value = subcategoria;
-            opcion.text = subcategoria;            
+            opcion.text = subcategoria;
             subcategorias.add(opcion);
         });
     }
- }
+}
 
 cargar_categorias();
