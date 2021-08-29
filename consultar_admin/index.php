@@ -176,9 +176,10 @@
                                 LEFT JOIN Categoria as CT ON ST.idCategoria=CT.idCategoria
                                 LEFT JOIN Talla as T ON P.idTalla=T.idTalla 
                                 LEFT JOIN Color as CL ON P.idColor=CL.idColor
-                                LEFT JOIN Imagen as I ON I.idProducto=P.idProducto AND I.tipoVista='F'
-                                WHERE
-                                 ST.nombre LIKE  '%$nombre_producto%' OR CT.nombre LIKE '%$categoria_producto%';";
+                                LEFT JOIN Imagen as I ON I.idProducto=P.idProducto AND I.tipoVista='a'
+                                WHERE CT.nombre LIKE '%$categoria_producto%';";
+                                  
+                                  //ST.nombre LIKE  '%$nombre_producto%' OR
             //die($sql);
             }else{//Si no se ha hecho una consulta, se filtran todas las columnas por defectos
               $sql = "SELECT P.idProducto as ID,
